@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>同步卫星</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		.planetsys {
+			width: 600px;
+			height: 600px;
+			border: 1px solid #000;
+			margin: 50px auto;
+			position: relative;
+		}
+
+		.planet {
+			width: 200px;
+			height: 200px;
+			border-radius: 50%;
+			background-color: #ff0000;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translateX(-50%) translateY(-50%);
+		}
+
+		.orbit {
+			width: 500px;
+			height: 500px;
+			border-radius: 50%;
+			border: 1px dashed #666;
+			box-sizing: border-box;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translateX(-50%) translateY(-50%);
+		}
+
+		.satellite {
+			width: 100px;
+			height: 100px;
+			border-radius: 50%;
+			background-color: green;
+			position: absolute;
+			top: 250px;
+			left: 0;
+			transform-origin: 300px 50px;
+			animation: revolution 5s linear infinite;
+		}
+
+		.satellite::before {
+			content: "1";
+			position: absolute;
+			width: 100px;
+			height: 100px;
+			font: 400 30px/100px "microsoft yahei";
+			text-align: center;
+			transform-origin: 50px 50px;
+			animation: self-rotation 5s linear infinite;
+		}
+
+		@keyframes revolution {
+			100% {
+				transform: rotate(-360deg);
+			}
+		}
+
+		@keyframes self-rotation {
+			100% {
+				transform: rotateZ(360deg);
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="planetsys">
+		<div class="planet"></div>
+		<div class="orbit"></div>
+		<div class="satellite"></div>
+	</div>
+</body>
+</html>
